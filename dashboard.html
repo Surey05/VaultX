@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VaultX Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <div class="sidebar-logo">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h2>VaultX</h2>
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <li class="active"
+            onclick="window.location.href='dashboard.html'">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </li>
+
+            <li onclick="window.location.href='upload.html'">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                Upload
+            </li>
+
+            <li class="logout-btn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- Main -->
+    <div class="main-content">
+
+        <!-- Topbar -->
+        <div class="topbar">
+
+            <h1>Dashboard</h1>
+
+            <div class="profile">
+                <i class="fa-solid fa-user"></i>
+                <span>Surendiran</span>
+            </div>
+
+        </div>
+
+
+        <!-- Stats -->
+        <div class="stats-grid">
+
+            <div class="stats-card">
+
+                <i class="fa-solid fa-file"></i>
+
+                <h2 id="totalDocs">0</h2>
+
+                <p>Total Documents</p>
+
+            </div>
+
+            <div class="stats-card">
+
+                <i class="fa-solid fa-hard-drive"></i>
+
+                <h2 id="storageUsed">0 MB</h2>
+
+                <p>Storage Used</p>
+
+            </div>
+
+            <div class="stats-card">
+
+                <i class="fa-solid fa-folder"></i>
+
+                <h2 id="categoryCount">0</h2>
+
+                <p>Categories</p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Recent Uploads -->
+        <div class="dashboard-section">
+
+            <div class="section-title">
+
+                <h2>Recent Uploads</h2>
+
+                <!-- Filter Buttons -->
+                <div class="filter-buttons">
+
+                    <button class="filter-btn active-filter"
+                    onclick="filterFiles('All')">
+                        All
+                    </button>
+
+                    <button class="filter-btn"
+                    onclick="filterFiles('Marksheets')">
+                        Marksheets
+                    </button>
+
+                    <button class="filter-btn"
+                    onclick="filterFiles('ID Cards')">
+                        ID Cards
+                    </button>
+
+                    <button class="filter-btn"
+                    onclick="filterFiles('Licenses')">
+                        Licenses
+                    </button>
+
+                    <button class="filter-btn"
+                    onclick="filterFiles('Certificates')">
+                        Certificates
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Dynamic Files -->
+            <div class="recent-files" id="recentFiles">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script type="module" src="auth-check.js"></script>
+
+<script type="module" src="logout.js"></script>
+
+<script type="module" src="dashboard.js"></script>
+
+<script src="https://accounts.google.com/gsi/client"></script>
+
+</body>
+</html>

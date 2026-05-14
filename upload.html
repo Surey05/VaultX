@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Documents</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <div class="sidebar-logo">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h2>VaultX</h2>
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <!-- Dashboard -->
+            <li onclick="window.location.href='dashboard.html'">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </li>
+
+            
+            <!-- Upload -->
+            <li class="active"
+            onclick="window.location.href='upload.html'">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                Upload
+            </li>
+
+            <!-- Logout -->
+            <li onclick="window.location.href='index.html'">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- Topbar -->
+        <div class="topbar">
+            <h1>Upload Documents</h1>
+        </div>
+
+        <!-- Upload Container -->
+        <div class="upload-container">
+
+            <!-- Upload Box -->
+            <div class="upload-box">
+
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                <h2>Drag & Drop Files</h2>
+
+                <p>
+                    Upload your important documents securely
+                </p>
+
+                <input type="file" id="fileInput">
+
+<p id="selectedFile">
+    No file selected
+</p>
+
+            </div>
+
+            <!-- Upload Form -->
+            <div class="upload-form">
+
+                <!-- Category -->
+                <div class="form-group">
+
+                    <label>Category</label>
+
+                    <select>
+                        <option>Marksheets</option>
+                        <option>ID Cards</option>
+                        <option>Licenses</option>
+                        <option>Certificates</option>
+                    </select>
+
+                </div>
+
+                
+                <!-- Upload Button -->
+                <button class="btn-primary upload-btn">
+                    Upload Document
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<script type="module" src="auth-check.js"></script>
+<script type="module" src="upload.js"></script>
+<script src="https://accounts.google.com/gsi/client"></script>
+
+<script src="https://apis.google.com/js/api.js"></script>
+
+<script type="module" src="upload.js"></script>
+</body>
+</html>
