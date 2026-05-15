@@ -1,4 +1,4 @@
-import { db,auth }
+import { db, auth }
 from "./firebase.js";
 
 import {
@@ -6,10 +6,19 @@ import {
     collection,
     getDocs,
     deleteDoc,
-    doc
+    doc,
+    query,
+    where
 
 }
 from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+
+import {
+
+    onAuthStateChanged
+
+}
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 
 
 // Elements
@@ -26,30 +35,45 @@ const categoryCount =
 document.getElementById("categoryCount");
 
 
-// Files Array
+// Files
 let uploadedFiles = [];
 
 
+// Wait For Auth
+onAuthStateChanged(auth, async (user) => {
+
+    if(user){
+
+        loadDocuments(user.uid);
+
+    }
+
+    else{
+
+        window.location.href =
+        "login.html";
+
+    }
+
+});
+
+
 // Load Documents
-async function loadDocuments(){
+async function loadDocuments(uid){
 
     recentFiles.innerHTML =
     "Loading...";
 
-   const q = query(
+    const q = query(
 
-    collection(db, "documents"),
+        collection(db, "documents"),
 
-    where(
-        "uid",
-        "==",
-        auth.currentUser.uid
-    )
+        where("uid", "==", uid)
 
-);
+    );
 
-const querySnapshot =
-await getDocs(q);
+    const querySnapshot =
+    await getDocs(q);
 
     uploadedFiles = [];
 
@@ -173,7 +197,7 @@ function renderFiles(files){
 }
 
 
-// Filter Files
+// Filter
 window.filterFiles = function(category){
 
     const filterBtns =
@@ -211,7 +235,7 @@ window.filterFiles = function(category){
 }
 
 
-// Delete File
+// Delete
 window.deleteFile = async function(
 
     firestoreId,
@@ -249,7 +273,7 @@ window.deleteFile = async function(
                 tokenResponse.access_token;
 
 
-                // Delete from Google Drive
+                // Delete Drive File
                 await fetch(
 
 `https://www.googleapis.com/drive/v3/files/${driveFileId}`,
@@ -270,7 +294,7 @@ window.deleteFile = async function(
                 );
 
 
-                // Delete Firestore Doc
+                // Delete Firestore
                 await deleteDoc(
 
                     doc(
@@ -306,7 +330,3 @@ window.deleteFile = async function(
     }
 
 }
-
-
-// Start
-loadDocuments();
