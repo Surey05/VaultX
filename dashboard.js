@@ -42,11 +42,14 @@ let uploadedFiles = [];
 // Wait For Auth
 onAuthStateChanged(auth, async (user) => {
 
-    if(user){
+if(user){
 
-        loadDocuments(user.uid);
+    username.innerHTML =
+    user.email.split("@")[0];
 
-    }
+    loadDocuments(user.uid);
+
+}
 
     else{
 
