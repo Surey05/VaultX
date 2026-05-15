@@ -708,3 +708,50 @@ body{
 .delete-btn:hover{
     background: #b91c1c;
 }
+.footer{
+
+    margin-top: 100px;
+
+    padding: 40px 20px;
+
+    text-align: center;
+
+    background: #0f172a;
+
+    border-top: 1px solid #1e293b;
+
+}
+
+.footer h2{
+
+    color: #3b82f6;
+
+    margin-bottom: 10px;
+
+}
+
+.footer p{
+
+    color: #94a3b8;
+
+    margin: 8px 0;
+
+}
+
+.developer{
+
+    color: white;
+
+    font-size: 16px;
+
+}
+
+.copyright{
+
+    margin-top: 20px;
+
+    font-size: 14px;
+
+    color: #64748b;
+
+}
